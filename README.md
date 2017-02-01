@@ -1,0 +1,1 @@
+A command line chatbot client for the byteball test net.

@@ -1,0 +1,16 @@
+{
+  "name": "byteball-chat",
+  "version": "0.0.0",
+  "description": "Chat client for the Byteball network",
+  "main": "chat.js",
+  "license": "MIT",
+  "repository": {
+    "url": "git@github.com:pmiklos/byteball-chatbot-client.git",
+    "type": "git"
+  },
+  "author": "Peter Miklos",
+  "dependencies": {
+    "bitcore-lib": "^0.13.14",
+    "byteballcore": "git+https://github.com/byteball/byteballcore.git#testnet"
+  }
+}
