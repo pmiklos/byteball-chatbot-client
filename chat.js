@@ -99,21 +99,21 @@ readKeys(function(devicePrivKey, deviceTempPrivKey, devicePrevTempPrivKey) {
     var my_device_pubkey = device.getMyDevicePubKey();
     console.log("my device pubkey: " + my_device_pubkey);
     console.log("my pairing code: " + my_device_pubkey + "@" + HUB + "#0000");
-    
+
     replaceConsoleLog();
 
     rl.question('Enter pairing code of the other device: ', (pairingCode) => {
-		let matches = pairingCode.match(/^(?:\w+:)?([\w\/+]+)@([\w.:\/-]+)#([\w\/+-]+)$/);
-		if (!matches)
-			return out("Invalid pairing code");
-		
-		let pubkey = matches[1];
-		let hub = matches[2];
-		let pairing_secret = matches[3];
-		
-		if (pubkey.length !== 44)
-			return out("Invalid pubkey length");
-        
+        let matches = pairingCode.match(/^(?:\w+:)?([\w\/+]+)@([\w.:\/-]+)#([\w\/+-]+)$/);
+        if (!matches)
+            return out("Invalid pairing code");
+
+        let pubkey = matches[1];
+        let hub = matches[2];
+        let pairing_secret = matches[3];
+
+        if (pubkey.length !== 44)
+            return out("Invalid pubkey length");
+
         acceptInvitation(hub, pubkey, pairing_secret, function(result) {
             if (result) return out(result);
             console.log("Invitation accepted to " + pubkey);
@@ -130,7 +130,7 @@ eventBus.on('paired', function(from_address) {
 
 eventBus.on("text", function(from_address, text) {
     device.readCorrespondent(from_address, function(correspondent) {
-        out(correspondent.name+"> " + text);
+        out(correspondent.name + "> " + text);
         rl.prompt(true);
     });
 });
