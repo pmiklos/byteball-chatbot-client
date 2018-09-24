@@ -2,7 +2,7 @@
 "use strict";
 const fs = require('fs');
 const util = require('util');
-const conf = require("./conf.js");
+const conf = require("byteballcore/conf.js");
 const crypto = require('crypto');
 const device = require('byteballcore/device.js');
 const eventBus = require('byteballcore/event_bus.js');
